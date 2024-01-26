@@ -2,9 +2,15 @@
 title: Welcome to Quartz
 ---
 
-Hiya!
+# Notes
 
-We love quartz
+#### Spring 2024 Courses:
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+CMSC351
+
+CMSC330
+
+CMSC320
+
+MATH246
+

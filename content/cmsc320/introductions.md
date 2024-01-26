@@ -1,5 +1,5 @@
 ---
-title: cmsc320	
+title: Course Introductions
 tags:
 - cmsc320
 - wip
@@ -9,19 +9,20 @@ tags:
 
 Data science is an interdisciplinary field focused on discovering patterns and describing relations using data, consisting of computational and statistical techniques to address or gain [managerial or scientific] insight.
 
-Take raw data and turn it into insights about the world or predictions about the future.
+The process consists of taking raw data and turn it into insights about the world or predictions about the future.
 
 ## Big Data and Data Science
 
 Big data describes datasets with large volume, created and updated with high velocity that have variety in structure and format.
 
-Volume: The amont of data from myriad sources.
 
-Velocity: The speed at which big data is generated
+| Term | Definition |
+| -------------------- | -------------------- |
+| **Volume** | The amount of data from myriad sources |
+| **Velocity** | The speed at which big data is generated |
+| **Variety** | The types of data (structured, semi-structured, unstructured) |
 
-Variety: The types of data (structured, semi-structured, unstructured)
-
-Raw Data Ex.
+Examples of raw data consists of: 
 - Medical records
 - Patient demographics
 - Lab results
@@ -31,11 +32,17 @@ Insights and Predictions: Identifies patterns in patient data to
 - optimize treatment plans
 - provide insights for medical research
 
-## The Data LifeCycle
+## The Data Lifecycle
 
-Data Collection -> Data Processing -> exploratory analysis & data visualization-> Analysis, hypothesis testing & Machine Learning -> Insight & Policy Decision
+```mermaid
+flowchart LR
+  A(Data Collection) --> B(Data Processing)
+  B --> C(Exploratory Analysis & Data visualization)
+  C --> D(Analysis, Hypothesis testing & Machine Learning)
+  D --> E(Insight & Policy Decision)
+```
 
-Note: Data science is not a strictly one-way linear process; it's dynamic, iterative, and adaptive (revisit previous steps along the way
+**Note:** Data science is not a strictly one-way linear process; it's dynamic, iterative, and adaptive (revisit previous steps along the way
 
 ### Before all: Define Problem Statement
 
@@ -51,32 +58,24 @@ Data collection is a systematic approach to gather relevant information from a v
 
 #### Methods
 
-2 Types of Data Collection Methods
+**2 Types of Data Collection Methods**
 
-- Primary Data Collection
-  - Web Analyics
-  - Surveys
-  - Listening Labs
-
-Situation: Some unique problem and no related research is done on the subject
-Solution: collect new data -> Primary data collection
-
-Different Methods: Surveys, interviews of employees and by monitoring the timespent by employees in cafeteria.
-
-Note: Time Consuming
-
-- Secondary Data
-  - Publishing Articles
-  - Blogs
-  - White Papers
-
-Situation: Some problem and the data is readily available for collected by someone else.
-Solution: Use the data -> Secondary data collection
-
-Different Methods: The internet, news articles, government census, magazines nad so on.
-
-Note: Less tiem consuming than the primary methods
-
+| | Primary Data Collection | Secondary Data Collection |
+| -- | -- | -- |
+| **Examples:** |  Web Analyics | Publishing Articles|
+| | Surveys | Blogs |
+| | Listening Labs | White Papers |
+| | |
+| **Situation:** | Unique problem and no related research  | Data is readily available |
+| | | 
+| **Solution:** | Collect new data (primary)  | Use the data (secondary)
+| | |
+| **Different Method:** | Surveys | Internet |
+| | Interviews | News articles |
+| | Monitoring | Govt. Census |
+| | | Magazines |
+| | | |
+| **Note:** | Time consuming| Less time consuming |  
 
 ### Data Processing
 

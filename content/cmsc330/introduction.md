@@ -7,43 +7,28 @@ tags:
 
 # Introduction
 
-Syntax and Semantics
+### Purpose (Key Questions)
 
-### Purpose
+1. What is a language?
 
-#### What is a language?
+   * Way to communicate among ourselves.
+   * Consisting of rules and syntaxes
+   
+2. Why is language Important?
 
-Way to communicate among ourselves.
+   * To be able to efficiently communicate desires to someone or something
 
-#### Why is language Important?
+3. How do we design a language?
 
-To be able to efficiently communicate desires to someone or something
+    * Develope advantages for certain languages to be more effecitve in doing certain tasks than others
 
-#### How do we design a language?
+4.  How do we implement a language
 
-Develope advantages for certain languages to be more effecitve in doing certain tasks than others
+    * TBD [wip}
 
-#### How do we implement a language
+5. Why do so many languages exist?
 
-TBD [wip}
-
-# Course Overview
-
-Program languages are like spoken languages.
-
-What is a Language?
-
-* rules and syntax to communicate with others
-
-How do we use Language?
-
-* while loops
-* recursion
-* etc..
-
-Why do so many languages exist?
-
-Many different uses, with specifications catered towards certain tasks (doing it better and safe)
+   * Many different uses, with specifications catered towards certain tasks (doing it better and safe)
 
 ### Language Features help us express ourselves.
 
