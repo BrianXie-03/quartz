@@ -1,8 +1,7 @@
 ---
-title: Course Introductions
+title: Course Introduction
 tags:
 - cmsc320
-- wip
 ---
 
 # Introduction to Data Science
@@ -79,42 +78,25 @@ Data collection is a systematic approach to gather relevant information from a v
 
 ### Data Processing
 
-Clearn or scrub data to ensure the data quality.
-
-Sanity checks on data (i.e, in a collection of data on test scores for N/A responses replace N/A entries with a neutral value like 0 and filling in missing score with the correct value).
+Sanity checks on data, ensuring that data are usable
+>In a collection of data on test scores with N/A responses, replace N/A entries with a neutral value, 0, and filling missing score with the correct value.
 
 ### Exploratory Analysis & Data Visualization
 
-Extract useful insights from the data, understanding patterns, and setting the stage for effective model building and decision-making
-Important to analyze the data and build familiarity with the data
-Skipping this step may lead to inaccurate models as well as insignificant variables in your models.
+Extract useful insights from the data, understanding patterns, and setting the stage for effective model building and decision-making.  
+**Note:** Skipping this step may lead to inaccurate models as well as insignificant variables in your models.
 
-Exploratory Analysis: Find correlation between study hours and scores by calculating the average score, find the range of scores, and notice that some students scored exceptionally well.
+**Exploratory Analysis:** Find correlation between study hours and scores by calculating the average score, find the range of scores, and notice that some students scored exceptionally well.
 
-Data Visualization: Visually show the relationship between study hours and average scores for different groups of students in order to revevla that students who study more tend to have higher average scores.
+**Data Visualization:** Visually show the relationship between study hours and average scores for different groups of students in order to revevla that students who study more tend to have higher average scores.
 
 ### Analysis, hypothess testing & Machine Learning
 
-Build a model (making a machine learnig model that predicts a student's test score based on their study hours, train the model).
+Build a model and training the model.
+>Example: making a machine learning model that predicts a student's test score based on their study hours, while training the model.
 
 ### Insight & Policy Decision
 
 - Deriving Insights and make policy decisions if needed.
 - Present the results from your analysis to the stakeholders.
 - Convince people: explain the specific conclusions and critical findings, probably in understandable manner.
-
-Interpretation:
-
-[[wip]]
-
-## Career in Data Science
-
-- Data engineers: gathering and storage. Extract, transform, and load datasets for later analysis.
-
-- Data scientists: gather data, transform data, and use models and alogirthms to extract meaningful insights from datasets
-
-- Data Analysis:
-
-- Business Intelligence Analysis:
-
-- Machine Learning Engineers:

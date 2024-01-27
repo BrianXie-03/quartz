@@ -2,38 +2,33 @@
 title: Course Introduction
 tags:
 - cmsc330
-- wip
 ---
 
 # Introduction
 
 ### Purpose (Key Questions)
 
-1. What is a language?
+1. What is a language and why is it important?
 
-   * Way to communicate among ourselves.
+   * A medium used to communicate among ourselves and express ourselves.
    * Consisting of rules and syntaxes
-   
-2. Why is language Important?
 
-   * To be able to efficiently communicate desires to someone or something
+2. How do we design a language in terms of Computer Science?
 
-3. How do we design a language?
+    * Develop advantages for certain languages to be more effecitve in doing certain tasks than others.
 
-    * Develope advantages for certain languages to be more effecitve in doing certain tasks than others
-
-4.  How do we implement a language
-
-    * TBD [wip}
-
-5. Why do so many languages exist?
+3. Why do so many languages exist?
 
    * Many different uses, with specifications catered towards certain tasks (doing it better and safe)
 
-### Language Features help us express ourselves.
+### Language Features
 
-[[wip]]
+The idea of having **special shortcuts** in a language is important to this course (recursion).	
+
+Some languages have certain ways to **expressing** things that others do not.
+
 
 ### Semantics and Syntax
 
-[[wip]]
+**Semantics:** Referes to the meaning of sentences/languages.  
+**Synax:** Referes to the structure of the language (grammer is a subset of syntax).
