@@ -1,0 +1,342 @@
+---
+title: Ocaml Syntax and Semantics
+tags:
+- cmsc330
+- wip
+---
+
+# Ocaml
+
+Things to first note about ocaml
+* All files are named .ml
+* Commenets are done using (* *)
+* naming conventions are done using snake_case
+* Almost everything in OCaml are expressions, but not all expressions are values
+* Uses static and latent [[typing]]
+* Variables are all immutable
+* Expressions evaluate to values (v)
+* All values are expressions, but not vice versa
+* Expressions have types (t)
+
+
+Similar to C, OCaml is a compiled language, meaning that it needs to go through multiple steps in order to run a OCaml program.
+
+```bash
+ocamlc name.ml #used to run OCaml programs
+
+# Note that it'll create:
+#prog_name.cmi
+#prog_name.cmo
+#a.out
+```
+
+## Functions and Expressions
+
+While we say that almost everything is an expression, the binding of expressions, **let binding** is not an expresion. Futhermore, **let expression** can also be covered as there are alternative uses to let.
+
+**let bindings:** is not an expression and just binds an expression to a variable
+```ocaml
+(* letBinding.ml *)
+let x  = 3 + 4
+(* let variable_name = e*)
+```
+
+**let expressions:** setting a local variable to be used in another expression
+```ocaml
+(* letExpression.ml *)
+let x = 3 + 4 in x + 1
+(* let variable_name = e1 in e2 *)
+```
+**in:** known to be more of a punctuation, allowws for parser languages to tell where one expression stops and another starts
+
+```ocaml
+(* scoping.ml *)
+ let x = 3 in let y = 4 in x + y (* 7 *)
+ let x = 3 in let x = 4 in x (* 4 *) (* overshadow *)
+ let x = 3 in let z = 4 + x in let x = 1 in x + z (* 8 *)
+ (* implicit parenthesis *)
+ let x = 3 in (let z = 4 + x in (let x = 1 in x + z))
+
+ let x = if true then false else true in
+ let y = 3 + 4 in
+ let z = if true then 2 else 6 in
+ if x then y else z
+```
+
+## if Operator
+
+The if operater is used in order to allow for two different results given a bool value. Provided is the bare syntax for using the if operator
+
+```ocaml
+(if e1:bool then e2:t else e3:t):t
+
+if true then 3 else 4
+```
+
+> **Note:** the resulting output must be both evaluate to the same type
+
+We can then apply the if statements to let bindings and let expressions.
+```ocaml
+let x = if true then false else true
+
+let y = 3 + 4 - 10 in
+if true then y else y + 10
+```
+
+Another application of if statements is that it can be nested/used for other tasks such as arithmatics or for a more complex use. 
+
+```ocaml
+1 + (if (if true then false else true) then 3 else 4))
+
+(* return 5:int *)
+```
+
+## Functions as Expressions
+
+A way to look into ocaml is that variables are functions that have no parameters that return a value. By following the initialization with variables.
+
+```ocaml
+(* functions.ml *)
+let area l w = l * w
+let area l w = l * w in area 2 3
+```
+Similar to let bindings, a function defintion by itself is not an expression, only when you use the keyword in, would you have it become an expression. Since we now know that functions are expressions, and that functions can take in expressions as inputs, we are able to have functions that take in other functions.
+
+```ocaml
+let area l w = l * w (* int -> int -> int *)
+let apply f x y = f x y (* ('a -> 'b -> 'c) -> 'a -> 'b -> 'c *)
+apply area 2 3 
+```
+
+
+
+## Type Inference
+
+
+Types are inferred 
+
+```ocaml
+let func_name arg arg2 ... = body
+```
+
+```ocaml
+int_of_float
+```
+takes an int and convert to float
+
+mutliple parameters
+```ocaml
+let add x y = x + y
+
+(* to call the function *)
+add 3 4
+```
+
+if u add a float and a int then it truncats down as it returns an int
+
+float -> int -> int
+
+
+
+
+
+Helpful Programs
+
+| Commands | Results |
+| -- | -- |
+| ocaml | can be used to test a line of code |
+| utop | ocaml wrapper for easier testing (intepreter) | 
+
+dune like Make
+opam package manager for Ocaml
+
+Probably want to run dune utop src
+will need to use ; to end expressions in utop
+
+
+---- more meaningful functins ----
+
+rec = keyword for recursion
+without rec but calling like an recursion you get unbound value 
+
+```ocaml
+let rec fact x =
+    if x = 1 then 1 else x * fact (x-1)
+```
+
+List data structure
+
+must be homogenous (same type)
+
+```ocaml
+int lst = [1;2;3;] (*int list*)
+bool list = [true;false] (*bool list*)
+```
+
+```ocaml
+let is_empty lst =
+    lst = []
+```
+
+'a list -> bool
+
+" a tic a list to bool "
+
+when comparing they must be the same type  < > <= >+
+
+```ocaml
+let cmp x y = x > y
+```
+'a -> 'a -> bool
+
+```ocaml
+let cmp x y = x > false
+```
+bool -> 'a -> bool
+
+```ocaml
+let cmp x y = 3
+```
+'a -> 'b -> int
+
+
+cons operator (::) adds to the beginning 
+
+```ocaml
+0::[1;2;3]
+
+[0;1;2;3]
+```
+
+defining variables
+
+```ocaml
+let x = 3
+x + 4
+```
+
+```ocaml
+let lst = [1;2;3]
+0::lst (* [0;1;2;3] *)
+
+let x = 4
+x + 5 (* 9 *)
+```
+
+ocaml has garbage collection (since immutable auto clean up)
+
+```ocaml
+0::1::2::[] -> [1;2;3]
+```
+
+```ocaml
+let add_0 lst = 0::lst
+
+int list -> int list (* we know the later is int lsit and since its
+homogenous the input is also int lsit *)
+```
+
+To make it more generic
+```ocaml
+let add_gen lst val = val::lst
+```
+'a -> 'a list -> 'a list
+
+## Pattern Matching
+
+otherwise known as a fancy switch statemnet
+
+```ocaml
+(match value:t with
+| (value1):pattern -> (return_value1):t
+| (value2):pattern -> (return_value2):t
+| (value3):pattern -> (return_value3):t):t
+```
+
+a pattern can be a single struture, values, or wildcards
+
+_ is a wildcard
+
+```ocaml
+let match_x x =
+match x with
+| 1 -> "a"
+| 2 -> "b"
+| 3 -> "c"
+| _ -> "d"
+```
+
+int -> string = <fun>
+
+```ocaml
+let match_lst lst =
+    match lst with
+    | [] -> 0
+    | [x] -> 1
+    | head :: tail -> 2;;
+```
+
+> head:: tail is where head is currently on top and tail is the remaining (think linked list)
+
+
+```ocaml
+let match_lst lst =
+    match lst with
+    | [] -> -1
+    | head :: tail ->head
+```
+int list -> int
+
+
+```ocaml
+let match_lst =
+    match lst with
+    | [] -> -1
+    | h1::h2::tail -> h1+h2
+```
+> issue if list size 1
+
+```ocaml
+let rec add_list =
+    match lst with
+    | [] -> 0
+    | x::xs -> x + add_list xs
+```
+
+
+## Tuple
+
+(1,2,3)
+
+int * int * int = (1,2,3)
+
+(1, true, 3)
+int * bool * int
+
+(1, true)
+int * bool
+
+if putting tuple in list then all types in tuple must be the same
+( int * int ) list
+
+cannot have ( bool * int ) list
+
+
+[(1,2);(3,4,5)]
+size of the tuple also matters
+(int * int) is not the same as (int * int * int)
+
+```ocaml
+let match_tup x =
+    match x with
+    (a,b,c) -> (b,c,a)
+```
+'a * 'b * 'c -> 'b * 'c * 'a
+
+
+```ocaml
+let match_tup x =
+    match x with
+    (a,b,c) -> (b+1,c,a&&false)
+```
+bool * int * 'c -> int * 'c * bool
