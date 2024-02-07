@@ -2,7 +2,6 @@
 title: Maximum Contiguous Sum
 tags:
 - cmsc351
-- wip
 ---
 
 # Introduction
@@ -125,18 +124,23 @@ DAC algorithms work as follows:
 
 ## Kadane's Algorithm (Dynamic Programming)
 
-For an list $A$ and an index $i$, define define a maximun contiguous sum ending at $i = $ mcs which goes up to and **must include and no futher** index i
+**Defintion:** For an list $A$ and an index $i$, define a maximun contiguous sum ending at $i = $ mcs which goes up to and **must include and no futher** index i
 
-Example: $A$ = [ 4, -8, 6, -1, 3, 1, 5, 9] with i = 4 we find mcs is 8 (3, -1, 6)
+>[!example]- Simple Example
+> $A$ = [ 4, -8, 6, -1, 3, 1, 5, 9]  
+> with $i = 4$  
+> mcs $= 8 \to (3, -1, 6)$  
 
-First, mcs ending at index 0 is just A[0]  
-Next, mcs ending at index i is: max(A[i}, A[i] + mcs ending at index i - 1])
+> **Note:** MCS ending at index 0 is just A[0]  
+> **Note:** MCS ending at index $i$ is: $max(A[i], A[i] +$ mcs ending at index $i - 1)$
 
-Example: A = [1, -10, 5, 2, -8, 2, ...] and B = [1, -10, 4, -1, 5, 2, ...] $i = 5$
+>[!example]- More Complex Example
+> A = [1, -10, 5, 2, -8, 2, ...]  
+> B = [1, -10, 4, -1, 5, 2, ...]   
+> $i = 5$  
+>For A, the mcs at $i$ is just 2, for B the mcs is 10
 
-For A, the mcs at $i$ is just 2, for B the mcs is 10
-
-Overall: MSC = max(mcs ending at all i)
+**Overall:** MSC = max(mcs ending at all i)
 
 ```python
 # PRE: A is a list of length n

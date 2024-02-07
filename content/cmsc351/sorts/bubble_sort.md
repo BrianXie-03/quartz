@@ -2,7 +2,6 @@
 title: Bubble Sort
 tags:
 - cmsc351
-- wip
 ---
 
 # Introduction
@@ -44,13 +43,14 @@ Observe that wheen $i = 0$ we see $j$ goes from $0$ to $n - 2$.
 
 Observe that when $i =  2$ we see $j$ goes from $0$ to $n - ( n - 2 ) - 2 = 0$
 
-## TIme Complexity
+# TIme Complexity
 
 No matter what the list looks like, the time, with the labeling above is:
 
-sum( i = 0 to n -2) sum(i = 0 to n - i - 2)c = $\theta(n^2)$
+$$
+\sum_{i=0}^{n - 2} \sum_{i=0}^{n - i - 2} c = \theta(n^2)
+$$
 
-So:
-**Best Case:** $\theta(n^2)$
-**Average Case:** $\theta(n^2)$
-**Worse Case:** $\theta(n^2)$
+**Best Case:** $\theta(n^2)$  
+**Average Case:** $\theta(n^2)$  
+**Worse Case:** $\theta(n^2)$  
