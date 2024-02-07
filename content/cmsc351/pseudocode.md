@@ -45,3 +45,38 @@ end if
 $T(n) = \theta(1)$
 
 the $if$ certainly takes time, even if false
+
+```
+if x < y
+   for i=1 to n:
+       print("friday")
+   end for
+end if
+```
+
+Here, if x $\le$ y then the body runs, takes c-time per iteration for an overall linear result, and if x $\ge$ y then just the conditional check happens (constant time)  
+**Thus:** if $T(n) = $ time it takes to run (we don't know x,y):  
+$T(n) = O(n)$ and $T(n) = \omega(1)$ so $T(n) = \Omega$(nothing works here)
+
+
+# Best, worst, average case
+
+suppose our algorithm has input of size n
+we don't get to specify n but we can still ask the following:
+* How fast could this code run
+* How slow can this code run
+* On average how fast/slow can this code run
+
+```
+A = list of length n
+i = 0
+while i < n and A[i] != 0
+      print("cmsc")
+      i++	
+end while
+```
+in the best case, A[0] = 0 and the body of the while loop does not run  
+$T(n) = \theta(1)$
+in the worst case A[i] $\ne$ 0 for all i. Then
+$T(n) = \theta(n)$
+Average Case: Difficult because it's frequently difficult to define what "average" means 

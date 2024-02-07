@@ -1,0 +1,35 @@
+---
+title: Git
+tags:
+- cmsc320
+- wip
+---
+
+# Introduction
+
+Version Control System (VCS)
+
+**Definition:** A software tool used by developers to manage change to source code over time.
+* Tracks modifications to files, allowing multiple developers to collaborate on a project simultaneously while maintaining a complete history of all changes made to the codebase.
+* If there are issues, a version control system allows you to revert to an earlier code version.
+
+
+Centralized: There is a single "central" coopy of your project soemwhere (probably on the server), and programmers will 'commit' their changes to this central copy directly
+
+Distributed: Each programmer has a full project copy on their local machine. They commit changes locally and use push and pull operations to sync with a shared server for collaborations.
+
+The git repository, represented by the '.git' directory is a database that contains all the project source code and the history of all code updates. The '.git' directory is typically located at the root of the project directory.
+
+| Commands | Definition |
+| -- | -- |
+| git clone url [dir] | |
+| git add files | |
+| git commit | |
+| git status | |
+| git diff | |
+| git help [command] | |
+| git pull | |
+| git push | |
+
+> Other commands include: init, reset, branch, checkout, merge, log, tag
+

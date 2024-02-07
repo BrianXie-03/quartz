@@ -2,17 +2,15 @@
 title: Time Complexity
 tags:
 - cmsc351
-- wip
-- need review
 ---
 
 # Fundamentals
 
-Suppose we have two algorithms  
-* A1 takes time $5n$  
-* A2 takes time $n^2$
+Suppose we have two algorithms
+* $A_1$ takes time $5n$  
+* $A_2$ takes time $n^2$
 
-**Note:** In the case where $n$ increases, we see that at first A1 takes more time, but after a certain point ($x_0 = 5$), A2 will take longer.
+**Note:** In the case where $n$ increases, we see that at first $A_1$ takes more time, but after a certain point ($x_0 = 5$), $A_2$ will take longer.
 
 # Big-0
 
@@ -73,7 +71,7 @@ So defintion is satisfied with $x_0 = 1$ and $C = 5$
 > $3nlg(n) - n + 1 \ge 3nlg(n) - n \ge 3nlg(n) - nlg(n) = 2nlg(n)$  
 > The definition is satisfied with $n_0$ = 2 and B = 2
 
->[!example]+ Example Two
+>[!example]- Example Two
 > **Show:** $n^2 - n = \Omega(n^2)$  
 > **Scratch:** $n \le n^2$ when $n \ge 1$  
 > $n^2 = n \ge n^2 - n^2 = 0$ is not possible because we need $Bn^2$ with $B \gt 0$  
@@ -92,57 +90,72 @@ So defintion is satisfied with $x_0 = 1$ and $C = 5$
 
 # Limit Theorems:
 
+Given functions $f(x)$ and $g(x)$. We assume $\displaystyle \lim_{x \to \infty} f(x)$ and $\displaystyle \lim_{x \to \infty} g(x)$ exist (may be $\infty$). Then we are able to use the limit theorem calculations.
 
-Suppose we have two functions $f(x)$ and $g(x)$. Then suppose $\displaystyle \lim_{x \to \infty} f(x)$ and $\displaystyle \lim_{x \to \infty} g(x)$ exist (may be $\infty$)
-
-Then we have
-
-(A) if lim \frac{f(x)}{g(x)} != \infinity then f(x) = O(g(x))
-(B) if lim \frac{f(x)}{g(x)} != 0 then f(x) = \Omega (g(x))
-(c) if lim \frac{f(x)}{g(x)} != 0, != \infinity then f(x) = \theta (g(x))
+>[!Note]+ Limit Theorem
+>(A) $\displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)} \ne \infty$ then $f(x) = O(g(x))$
+>
+>(B) $\displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)} \ne 0$ then $f(x) = \Omega(g(x))$  
+>
+>(C) $\displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)} \ne \infty$ and $\ne 0$ then $f(x) = \theta(g(x))$  
 
 >[!example]- Example One
->**Show** $x^2-1 = \theta (x^2)$  
->**Proof** lim \frac{x^2-1}{x^2} (x to infinity) = lim \frac{x^2/2 - \frac{1}{x^2} (x to infinity) = lim ( 1 - \frac{1/x^2} (x to infinity) = 1 so done.
+> **Show** $x^2-1 = \theta (x^2)$  
+>
+> **Proof:**  
+> $\displaystyle \lim_{x \to \infty }\frac{x^2-1}{x^2} =$  
+> 
+> $\displaystyle \lim_{x \to \infty} \frac{x^2}{x^2} - \frac{1}{x^2} =$  
+> 
+> $\displaystyle \lim_{x \to \infty} 1 - \frac{1}{x^2} =$
+>
+> $ 1 - 0 =$  
+> $1$.
 
->[!example]+ Example Two
+>[!example]-Example Two
 >**Show** n^{10} = O(2^n)
->**Proof:** well lim \frac{n^10}{2^n} (n to infinity) we see \frac{\inf}{\inf} thus we do L'Hopital
-> lim \frac{10n^9}{ln(2)2^n} (do it again)
-> lim \frac{90n^8}{ln(2)ln(2)2^n) {see that top shrinks but bottom doesnt...
-> we get lim \frac{10!}{ln2}^{10}2*n} = 0, so done
+>**Proof:** 
+> 
+> $\displaystyle \lim_{n \to \infty} \frac{n^{10}}{2^n}$  we see $\frac{\infty}{\infty}$ thus we do L'Hopital  
+> 
+> $\displaystyle \lim_{n \to \infty} \frac{10n^9}{\ln(2)2^n}$ (do it again)  
+>
+> $\displaystyle \lim_{n \to \infty} \frac{90n^8}{\ln(2)\ln(2)2^n}$ (see that top shrinks but bottom doesnt...)  
+>
+> $\displaystyle \lim_{n \to \infty} \frac{10!}{{\ln2}^{10}2^n} = 0$ (done)  
 
+---
 
-closing notes
-(a) common functions
-it is true for ex that x^2 = \theta(x^2 + 2x + 1)
-but typically, we have f(x) = \theta(nice funcction) (or 0 or \Omega)
-where "nice" functions are things like the following given in increasing order,
-1, lgx, x, xlgx, x^2, x^2lgx ... all x^nlgx, 2^x, 3^x, ..., x!, ...
+>[!note]+ Nice Functions
+> **Possible:** $x^2 = \theta(x^2 + 2x + 1)$  
+> **Rather:** $f(x) = \theta$(nice function) (or $O$ or $\Omega$)  
+> $1$, $\lg{x}$, $x$, $x\lg{x}$, $x^2$, $x^2\lg{x}$ $...$  $x^n\lg{x}$, $...$ , $2^x$, $3^x$, $...$ , $x!$, $...$ 
 
-#### Intuition
+When a function is made up of 'nice' functions, it's the "biggest" which is the most important. The entire function would be $\theta$(biggest)
 
-When a function is made up of 'nice' functions, it's the "biggest" which is the most important. The entire function would be $\theta$ (biggest)
+>[!info]+ Example One
+> $3n^2 + 7n^2lg(n) - n + 1 = \theta(n^2lg(n))$  
+> $n^2lg(n)$ is the largest "nice" function
 
-> $3n^2 + 7n^2lg(n) - n + 1 = $  
-> We see that $n^2lg(n)$is the largest "nice" function
-
+>[!info]+ Example Two
 > $1 - n + 8n^2 + 2nlg(n) = \theta (n^2)$
 
-**Note:** if you have functions not in the list, all bets are off! Think outside of the box
+>**Note:** if you have functions not in the list, all bets are off! Think outside of the box
 
+>[!info]+ Example Three
 > $2 + sin(x) =$  
-> Keep in mind that sin(x) ranges between -1 to 1 thus we can see that
+> Keep in mind that sin(x) ranges $-1 \le y \le 1$ thus we can see that  
 > $ 1 \le 2 + sin(x) \le 3 $  
 > thus $2 + sin(x) = \theta (1)$
 
->$x(2+sin(x))$
->$1\le x(2+sin(x)) \le 3$
+>[!info]+ Example Four
+>$x(2+sin(x))$  
+>$1\le x(2+sin(x)) \le 3$  
 >$x \le 2+sin(x) \le 3x$  
 > thus $x(2+sin(x)) = \theta(x)$
 
 Dont forget
-$ \theta$ means both O and $\omega$
+$ \theta$ means both $O$ and $\Omega$  
 So if $f(x) = \theta(g(x))$ then it's guaranteed that $f(x) = O(g(x))$ and $f(x) = \Omega(g(x))$
 
 > Q: if $f(x) = O(g(x))$ then $f(x) = \theta(g(x))$  

@@ -6,11 +6,7 @@ title: Welcome to Quartz
 
 #### Spring 2024 Courses:
 
-[[cmsc351]]
-
-[[cmsc330]]
-
+[[cmsc351]]  
+[[cmsc330]]  
 [[cmsc320]]
-
-[[math246]]
 
